@@ -99,6 +99,7 @@ for(let i = 0; i <= 1000; i+=2) {
 
 //Función tradicional
 function gretting(name) {
+    let otroVariable = 10
     return `Hola, ${name}`
 }
 
@@ -155,9 +156,79 @@ fruta.unshift('Kiwi')
 console.log(fruta) //Agrega al inicio
 
 fruta = ['Manzana', 'Naranja']
-console.log(fruta.indexOf('Manzana'))
-console.log(fruta.indexOf('Manzanas'))
+console.log(fruta.indexOf('Manzana')) //Busca y retorna el indice, -1
+console.log(fruta.indexOf('Manzanas')) // -1
 
-console.log(fruta.includes('Banana'))
+console.log(fruta.includes('Banana')) // Devuelve true o false si el elemento se encuentra en el array
 console.log(fruta.includes('Manzana'))
 
+// Filtrar
+let students = [
+    {
+        'name' : 'Jose',
+        'year' : 29
+    },
+    {
+        'name' : 'Lina',
+        'year' : 26
+    },
+    {
+        'name' : 'Oscar',
+        'year' : 18
+    },
+    {
+        'name' : 'Mateo',
+        'year' : 20
+    }
+]
+
+let resultFilter = []
+for (let i = 0; i < students.length; i++){
+    if(students[i].year < 21) {
+        resultFilter.push(students[i])
+    }
+}
+
+let resultFilterTwo = students.filter((student) => student.year < 21)
+
+//Reduce
+arrayNumbers = [5,9,0,18,29,65,74,98,11]
+
+total = 0
+for (let i = 0; i< arrayNumbers.length; i++){
+    total += arrayNumbers[i]
+}
+
+totalTwo = arrayNumbers.reduce((carry, number ) => carry + number , 90)
+
+
+fruits = ['manzana', 'banana', 'manzana', 'naranja', 'banana', 'banana']
+let count = fruits.reduce((carry, item) => {
+    carry[item] = ( carry[item] || 0  ) + 1
+    return carry
+}, {})
+
+console.table(count)
+
+resultado = {}
+for(let i = 0; i <= fruits.length; i ++){
+    resultado[fruits[i]] = (resultado[fruits[i]] || 0 ) + 1 
+}
+
+fruits.forEach(fruit => console.log(fruit));
+
+for(let i = 0; i < fruits.length; i ++){
+    console.log(fruits[i])
+}
+
+
+//Map
+arrayNumbers = [5,9,0,18,29,65,74,98,11]
+console.log(typeof arrayNumbers)
+
+for(let i = 0; i < arrayNumbers.length; i ++){
+    arrayNumbers[i] = arrayNumbers[i] * 2
+}
+
+newArray = arrayNumbers.map((item) => item * 2)
+console.log(newArray)
